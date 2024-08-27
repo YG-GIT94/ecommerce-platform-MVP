@@ -1,19 +1,6 @@
 # Sprint 1: Project Setup and User Authentication
 
-## Story 1: Project Setup
-**Details**: Set up Spring Boot project and configure initial dependencies (Spring Security, Spring Data JPA, H2 Database).  
-**Story Points**: 2  
-**Acceptance Criteria**:
-- Project is initialized with Spring Boot.
-- Dependencies for Spring Security, Spring Data JPA, and H2 Database are added.
-- Project structure is set up correctly.
-
-**Tasks**:
-- Initialize Spring Boot project.
-- Add dependencies: Spring Security, Spring Data JPA, H2 Database.
-- Set up project structure.
-
-## Story 2: User Registration
+## Story 1: User Registration
 **Details**: As a shopper, I want to create an account so that I can make purchases.  
 **Story Points**: 3  
 **Acceptance Criteria**:
@@ -27,7 +14,7 @@
 - Save user details to the database.
 - Send confirmation email.
 
-## Story 3: User Login
+## Story 2: User Login
 **Details**: As a shopper, I want to log in with registered credentials.  
 **Story Points**: 2  
 **Acceptance Criteria**:
@@ -42,20 +29,7 @@
 
 # Sprint 2: Product Catalog and Search
 
-## Story 1: Product Entity and Repository
-**Details**: As a developer, I want to create a product entity and repository.  
-**Story Points**: 3  
-**Acceptance Criteria**:
-- Product entity is defined with necessary fields.
-- ProductRepository interface is created.
-- CRUD operations for products are implemented.
-
-**Tasks**:
-- Define Product entity.
-- Create ProductRepository interface.
-- Implement CRUD operations.
-
-## Story 2: Product Catalog
+## Story 1: Product Catalog
 **Details**: As a shopper, I want to view products by category.  
 **Story Points**: 3  
 **Acceptance Criteria**:
@@ -67,7 +41,7 @@
 - Create ProductController to handle requests.
 - Implement product listing view.
 
-## Story 3: Search Functionality
+## Story 2: Search Functionality
 **Details**: As a shopper, I want to search for products by name or category.  
 **Story Points**: 3  
 **Acceptance Criteria**:
@@ -81,20 +55,7 @@
 
 # Sprint 3: Shopping Cart
 
-## Story 1: Shopping Cart Entity and Repository
-**Details**: As a developer, I want to create a shopping cart entity and repository.  
-**Story Points**: 3  
-**Acceptance Criteria**:
-- ShoppingCart entity is defined with necessary fields.
-- ShoppingCartRepository interface is created.
-- CRUD operations for shopping cart are implemented.
-
-**Tasks**:
-- Define ShoppingCart entity.
-- Create ShoppingCartRepository interface.
-- Implement CRUD operations for shopping cart.
-
-## Story 2: Add to Cart
+## Story 1: Add to Cart
 **Details**: As a shopper, I want to add products to my cart.  
 **Story Points**: 3  
 **Acceptance Criteria**:
@@ -106,7 +67,7 @@
 - Update ShoppingCartController.
 - Modify product listing view to support adding to cart.
 
-## Story 3: Update Cart
+## Story 2: Update Cart
 **Details**: As a shopper, I want to update product quantities in my cart.  
 **Story Points**: 2  
 **Acceptance Criteria**:
@@ -118,7 +79,7 @@
 - Update ShoppingCartController.
 - Modify cart view to support updating quantities.
 
-## Story 4: Remove from Cart
+## Story 3: Remove from Cart
 **Details**: As a shopper, I want to remove products from my cart.  
 **Story Points**: 2  
 **Acceptance Criteria**:
@@ -171,20 +132,8 @@
 
 # Sprint 5: Order History and Tracking
 
-## Story 1: Order Entity and Repository
-**Details**: As a developer, I want to create an order entity and repository.  
-**Story Points**: 3  
-**Acceptance Criteria**:
-- Order entity is defined with necessary fields.
-- OrderRepository interface is created.
-- CRUD operations for orders are implemented.
 
-**Tasks**:
-- Define Order entity.
-- Create OrderRepository interface.
-- Implement CRUD operations for orders.
-
-## Story 2: Order History
+## Story 1: Order History
 **Details**: As a shopper, I want to view my past orders.  
 **Story Points**: 3  
 **Acceptance Criteria**:
@@ -196,7 +145,7 @@
 - Create OrderController to handle requests.
 - Implement order history view.
 
-## Story 3: Order Tracking
+## Story 2: Order Tracking
 **Details**: As a shopper, I want to track the status of my current orders.  
 **Story Points**: 3  
 **Acceptance Criteria**:
@@ -300,20 +249,8 @@
 
 # Sprint 8: Inventory Management
 
-## Story 1: Inventory Entity and Repository
-**Details**: As a developer, I want to create an inventory entity and repository.  
-**Story Points**: 3  
-**Acceptance Criteria**:
-- Inventory entity is defined with necessary fields.
-- InventoryRepository interface is created.
-- CRUD operations for inventory are implemented.
 
-**Tasks**:
-- Define Inventory entity.
-- Create InventoryRepository interface.
-- Implement CRUD operations for inventory.
-
-## Story 2: View Inventory Levels
+## Story 1: View Inventory Levels
 **Details**: As a service agent, I want to view current inventory levels.  
 **Story Points**: 3  
 **Acceptance Criteria**:
@@ -325,7 +262,7 @@
 - Add endpoints in InventoryController.
 - Implement inventory management view.
 
-## Story 3: Update Inventory Levels
+## Story 2: Update Inventory Levels
 **Details**: As a service agent, I want to update inventory quantities.  
 **Story Points**: 2  
 **Acceptance Criteria**:
@@ -337,7 +274,7 @@
 - Add endpoints in InventoryController.
 - Update inventory management view to support updates.
 
-## Story 4: Order from Manufacturer
+## Story 3: Order from Manufacturer
 **Details**: As a service agent, I want to order more products from manufacturers.  
 **Story Points**: 2  
 **Acceptance Criteria**:
@@ -352,40 +289,52 @@
 
 # Sprint 9: Security and Responsive Design
 
-## Story 1: Implement Security Measures
-**Details**: As a developer, I want to secure user data with encryption.  
-**Story Points**: 3  
-**Acceptance Criteria**:
-- Sensitive user data is encrypted.
-- Security configurations are updated to enforce encryption.
-- Security testing is performed to ensure data protection.
+## User Story 1: Secure Personal Data
+- **As a** shopper
+- **I want to** ensure that my personal data is securely stored
+- **So that I can** feel confident my information is protected against unauthorized access.
 
-**Tasks**:
-- Implement encryption for sensitive data.
-- Update security configurations.
-- Perform security testing.
+**Acceptance Criteria:**
+- All sensitive user data is encrypted in the database.
+- Security measures are in place to prevent unauthorized access.
+- Security audits and testing are conducted to verify data protection.
 
-## Story 2: Role-Based Access Control
-**Details**: As a developer, I want to implement role-based access control for admin, agents, and shoppers.  
-**Story Points**: 3  
-**Acceptance Criteria**:
-- Roles and permissions are defined.
-- Role-based access control is implemented in security configurations.
-- User management views support roles.
+**Developer Tasks:**
+- Implement encryption for sensitive data storage.
+- Update security configurations to enforce encryption.
+- Conduct security testing to ensure data protection measures are effective.
 
-**Tasks**:
-- Define roles and permissions.
+---
+
+## User Story 2: Access Control for User Roles
+- **As an** admin
+- **I want to** manage platform access based on user roles
+- **So that I can** control what actions different types of users (admins, agents, shoppers) can perform.
+
+**Acceptance Criteria:**
+- Admins can assign roles to users with specific permissions.
+- Shoppers have restricted access, agents have operational access, and admins have full access.
+- The platform enforces role-based access control across all features.
+
+**Developer Tasks:**
+- Define roles and permissions for different user types.
 - Implement role-based access control in security configurations.
-- Update user management views to support roles.
+- Update user management views to display roles and permissions.
 
-## Story 3: Responsive Design
-**Details**: As a user, I want the platform to be accessible on various devices.  
-**Story Points**: 3  
-**Acceptance Criteria**:
-- Platform layout adapts to different screen sizes.
-- Usability is optimized for desktops, tablets, and mobile devices.
-- Responsive design is tested on various devices.
+---
 
-**Tasks**:
-- Implement responsive design using CSS media queries.
-- Test and optimize the platform for different devices.
+## User Story 3: Responsive Design for All Users
+- **As a** shopper
+- **I want to** access the platform seamlessly from any device
+- **So that I can** browse and purchase products without any layout or functionality issues.
+
+**Acceptance Criteria:**
+- The platform adapts to different screen sizes (mobile, tablet, desktop).
+- All interactive elements are accessible and usable on touch devices.
+- Consistent user experience across all devices.
+
+**Developer Tasks:**
+- Implement responsive design principles using CSS and JavaScript.
+- Test the platform on various devices to ensure responsiveness.
+- Optimize images and other media for different screen sizes.
+
