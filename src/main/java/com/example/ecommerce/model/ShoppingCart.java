@@ -5,22 +5,20 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Entity
-public class PurchaseOrder {
+public class ShoppingCart {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
+    @OneToOne
     private Customer customer;
 
     @ElementCollection
-    @CollectionTable(name = "purchase_order_products", joinColumns = @JoinColumn(name = "order_id"))
+    @CollectionTable(name = "shopping_cart_products", joinColumns = @JoinColumn(name = "cart_id"))
     @MapKeyJoinColumn(name = "product_id")
     @Column(name = "quantity")
     private Map<Product, Integer> products = new HashMap<>();
-
-    private double totalAmount;
 
     public Long getId() {
         return id;
@@ -46,11 +44,13 @@ public class PurchaseOrder {
         this.products = products;
     }
 
-    public double getTotalAmount() {
-        return totalAmount;
+    // Add a product to the cart
+    public void addProduct(Product product, int quantity) {
+        products.merge(product, quantity, Integer::sum);
     }
 
-    public void setTotalAmount(double totalAmount) {
-        this.totalAmount = totalAmount;
+    // Clear all products from the cart
+    public void clearProducts() {
+        products.clear();
     }
 }

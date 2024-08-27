@@ -1,9 +1,9 @@
 package com.example.ecommerce.controller;
 
+import com.example.ecommerce.dto.SingleItemCheckoutDTO;
 import com.example.ecommerce.model.PurchaseOrder;
 import com.example.ecommerce.service.PurchaseOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,37 +15,27 @@ public class PurchaseOrderController {
     @Autowired
     private PurchaseOrderService purchaseOrderService;
 
-    @GetMapping
-    public List<PurchaseOrder> getAllPurchaseOrders() {
-        return purchaseOrderService.getAllPurchaseOrders();
+    @PostMapping("/checkout")
+    public PurchaseOrder checkout(@RequestParam Long customerId) {
+        return purchaseOrderService.checkout(customerId);
+    }
+
+    @PostMapping("/checkout/single")
+    public PurchaseOrder singleItemCheckout(@RequestBody SingleItemCheckoutDTO singleItemCheckoutDTO) {
+        return purchaseOrderService.singleItemCheckout(
+                singleItemCheckoutDTO.getCustomerId(),
+                singleItemCheckoutDTO.getProductId(),
+                singleItemCheckoutDTO.getQuantity()
+        );
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<PurchaseOrder> getPurchaseOrderById(@PathVariable Long id) {
-        PurchaseOrder purchaseOrder = purchaseOrderService.getPurchaseOrderById(id);
-        if (purchaseOrder == null) {
-            return ResponseEntity.notFound().build();
-        }
-        return ResponseEntity.ok(purchaseOrder);
+    public PurchaseOrder getPurchaseOrderById(@PathVariable Long id) {
+        return purchaseOrderService.getPurchaseOrderById(id);
     }
 
-    @PostMapping
-    public PurchaseOrder createPurchaseOrder(@RequestBody PurchaseOrder purchaseOrder) {
-        return purchaseOrderService.createPurchaseOrder(purchaseOrder);
-    }
-
-    @PutMapping("/{id}")
-    public ResponseEntity<PurchaseOrder> updatePurchaseOrder(@PathVariable Long id, @RequestBody PurchaseOrder purchaseOrder) {
-        PurchaseOrder updatedPurchaseOrder = purchaseOrderService.updatePurchaseOrder(id, purchaseOrder);
-        if (updatedPurchaseOrder == null) {
-            return ResponseEntity.notFound().build();
-        }
-        return ResponseEntity.ok(updatedPurchaseOrder);
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletePurchaseOrder(@PathVariable Long id) {
-        purchaseOrderService.deletePurchaseOrder(id);
-        return ResponseEntity.noContent().build();
+    @GetMapping
+    public List<PurchaseOrder> getAllPurchaseOrders() {
+        return purchaseOrderService.getAllPurchaseOrders();
     }
 }

@@ -1,13 +1,12 @@
 package com.example.ecommerce.controller;
 
-import java.util.List;
-
+import com.example.ecommerce.model.Customer;
+import com.example.ecommerce.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.example.ecommerce.model.Customer;
-import com.example.ecommerce.service.CustomerService;
+import java.util.List;
 
 @RestController
 @RequestMapping("/customers")
@@ -32,7 +31,7 @@ public class CustomerController {
 
     @PostMapping
     public Customer createCustomer(@RequestBody Customer customer) {
-        return customerService.saveCustomer(customer);
+        return customerService.createCustomer(customer);
     }
 
     @DeleteMapping("/{id}")
